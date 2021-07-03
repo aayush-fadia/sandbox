@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -it --gpus all --name docked_sahayak_webots2 -p 127.0.0.1:2222:22 -v /home/aayush/sahayak2/sahayak_root:/home/aayush/sahayak_root:z -v /home/aayush/sahayak2/container_home/.gazebo:/home/aayush/.gazebo:z -v /home/aayush/sahayak2/container_home/.config:/home/aayush/.config:z -v /home/aayush/sahayak2/container_home/.local:/home/aayush/.local:z --env="QT_X11_NO_MITSHM=1" --privileged -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY aayushf/sahayak_webots2:1.0

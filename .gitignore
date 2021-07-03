@@ -1,0 +1,8 @@
+**/.vscode/
+**/.idea/
+**/build/
+**/install/
+**/log/
+**/__pycache__/
+**/.idea/
+**/.vscode/

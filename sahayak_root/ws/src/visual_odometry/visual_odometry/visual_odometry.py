@@ -80,9 +80,11 @@ class VisualOdom(Node):
 
     def filter_matches_distance(self, match):
         filtered_match = []
-        for m, n in match:
-            if m.distance < self.dist_threshold * n.distance:
-                filtered_match.append(m)
+        for p in match:
+            if len(p) == 2:
+                m, n = p
+                if m.distance < self.dist_threshold * n.distance:
+                    filtered_match.append(m)
         return filtered_match
 
     def deproject(self, img, depth, u, v, K):
@@ -103,12 +105,12 @@ class VisualOdom(Node):
         image2_points = []
         if self.prev_kp is not None:
             matches = self.flann.knnMatch(self.prev_des, des, k=2)
+            K = np.asarray(msg_camera_info.k).reshape((3, 3))
+            filtered_matches = self.filter_matches_distance(matches)
             drawn_matches = self.draw_matches(self.prev_rgb, bgr, self.prev_kp, kp, matches)
             drawn_matches = cv2.cvtColor(drawn_matches, cv2.COLOR_BGR2RGB)
             plt.subplot(2, 1, 1).imshow(drawn_matches)
             plt.axis("off")
-            K = np.asarray(msg_camera_info.k).reshape((3, 3))
-            filtered_matches = self.filter_matches_distance(matches)
             for m in filtered_matches:
                 i1 = m.queryIdx
                 i2 = m.trainIdx

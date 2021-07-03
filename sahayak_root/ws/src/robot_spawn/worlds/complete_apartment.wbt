@@ -8,8 +8,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.08189733329365102 0.9898189279863201 0.11641012240952507 1.6511141188238545
-  position 4.383654763137692 0.34634147529242654 8.429343148443914
+  orientation -0.9829574993336522 0.12571877736508236 0.13412435841994447 0.24126676835839445
+  position 2.2726387664079186 1.4474128560544621 10.096725618727692
   exposure 0.5
   ambientOcclusionRadius 1
 }
@@ -2042,38 +2042,39 @@ Robot {
   scale 5 5 5
   children [
     Transform {
-      translation 0 0.194 0.05
-      children [
-        Solid {
-          scale 0.2 0.2 0.2
-          children [
-            Camera {
-              name "color-cam"
-              width 640
-              height 480
-            }
-            RangeFinder {
-              name "depth-cam"
-              width 640
-              height 480
-            }
-            Shape {
-              appearance GlossyPaint {
-                baseColor 0 0 1
-              }
-              geometry Cone {
-                bottomRadius 0.05
-                height 0.1
-              }
-            }
-          ]
-          name "solid(1)"
-        }
-      ]
-    }
-    Transform {
       translation 0 0.153 0.03
       children [
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            dampingConstant 200
+          }
+          endPoint Solid {
+            rotation 0.7071067811865475 0 0.7071067811865475 0
+            scale 0.2 0.2 0.2
+            children [
+              Camera {
+                name "color-cam"
+                width 640
+                height 480
+              }
+              RangeFinder {
+                name "depth-cam"
+                width 640
+                height 480
+              }
+              Shape {
+                appearance GlossyPaint {
+                  baseColor 0 0 1
+                }
+                geometry Cone {
+                  bottomRadius 0.05
+                  height 0.1
+                }
+              }
+            ]
+            name "solid(2)"
+          }
+        }
         RobotisLds01 {
         }
       ]

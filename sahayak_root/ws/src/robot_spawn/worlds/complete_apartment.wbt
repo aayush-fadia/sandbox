@@ -8,8 +8,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation -0.9829574993336522 0.12571877736508236 0.13412435841994447 0.24126676835839445
-  position 2.2726387664079186 1.4474128560544621 10.096725618727692
+  orientation 0.028607700941268938 -0.9669533926092263 -0.2533431190468031 3.4724189616725156
+  position 6.239528326526157 4.708370632781082 1.2399520088793543
   exposure 0.5
   ambientOcclusionRadius 1
 }
@@ -1791,15 +1791,9 @@ Armchair {
   color 0.827451 0.843137 0.811765
 }
 Armchair {
-  translation 4.354153999999999 0 6.495947
-  rotation 0 0.9999999999999999 0 2.930078
+  translation 2.61625 0 4.82731
+  rotation 0 1 0 -1.5205153071795863
   name "armchair(4)"
-  color 0.13333333333333333 0.13333333333333333 0.13333333333333333
-}
-Armchair {
-  translation 4.354153999999999 0 6.495947
-  rotation 0 1 0 2.930078
-  name "armchair(2)"
   color 0.13333333333333333 0.13333333333333333 0.13333333333333333
 }
 Armchair {
@@ -1872,7 +1866,7 @@ PortraitPainting {
   name "portrait painting(1)"
 }
 LandscapePainting {
-  translation 0.178447 1.62868 10.3223
+  translation 0.178447 1.62868 10.5023
   rotation 0 1 0 1.5708
 }
 LandscapePainting {
@@ -2038,11 +2032,12 @@ DEF TREES Transform {
   ]
 }
 Robot {
-  translation 2.29 0.201785 8.06286
-  scale 5 5 5
+  translation 4.49 0.201785 5.16286
+  rotation 0 1 0 3.14159
+  scale 3 3 3
   children [
     Transform {
-      translation 0 0.153 0.03
+      translation 0 0.195 0
       children [
         HingeJoint {
           jointParameters HingeJointParameters {
@@ -2075,6 +2070,11 @@ Robot {
             name "solid(2)"
           }
         }
+      ]
+    }
+    Transform {
+      translation 0 0.153 0.03
+      children [
         RobotisLds01 {
         }
       ]
@@ -2580,4 +2580,23 @@ Robot {
     ]
   }
   controller "<extern>"
+}
+Solid {
+  translation 4.57942 0.543345 9.86376
+  rotation 5.079301524577978e-09 -0.7062092119722578 0.7080032125107363 -3.1380053071795864
+  scale 0.5 0.5 0.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "/home/aayush/sahayak_root/ws/src/aruco/aruco/marker.png"
+          ]
+        }
+      }
+      geometry Plane {
+      }
+    }
+  ]
+  name "solid(3)"
 }

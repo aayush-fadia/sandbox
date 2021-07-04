@@ -1,17 +1,21 @@
 from launch import LaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription
 from ament_index_python.packages import get_package_share_directory
 import os
-import launch_ros.actions
-import launch_ros.descriptions
 
 
 def generate_launch_description():
     robot_spawn_prefix = get_package_share_directory('robot_spawn')
-    my_image_proc_prefix = get_package_share_directory('my_depth_image_proc')
     return LaunchDescription([
+        Node(package="tf2_ros",
+             executable="static_transform_publisher",
+             arguments=["0", "0", "0", "0", "0", "0", "map", "odom"]),
+        Node(package="tf2_ros",
+             executable="static_transform_publisher",
+             arguments=["0.189", "1.33", "9.25", "0", "0", "0", "map", "marker_0"],
+             output='screen'),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(robot_spawn_prefix, 'launch', 'spawn.launch.py'))),
         Node(
@@ -60,9 +64,6 @@ def generate_launch_description():
             ],
             output='screen'
         ),
-        Node(package="tf2_ros",
-             executable="static_transform_publisher",
-             arguments=["0", "0", "0", "0", "0", "0", "map", "odom"]),
         # Node(package="visual_odometry",
         #      executable="visual_odometry",
         #      remappings=[

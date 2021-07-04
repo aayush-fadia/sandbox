@@ -10,6 +10,6 @@ consoles: Console:All:All
 renderingDevicePerspectives: Pioneer 3-AT:color-cam;1;1.5;0;0
 renderingDevicePerspectives: Pioneer 3-AT:depth-cam;1;1.5;0;0
 renderingDevicePerspectives: TurtleBot3Burger:color-cam;1;1;0;0
-renderingDevicePerspectives: TurtleBot3Burger:depth-cam;1;1;0;0
+renderingDevicePerspectives: TurtleBot3Burger:depth-cam;1;1;0.337375;0
 renderingDevicePerspectives: laptop:display;0;1.54839;0;0
 renderingDevicePerspectives: television:display;0;1;0;0

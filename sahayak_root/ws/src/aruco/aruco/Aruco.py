@@ -51,8 +51,8 @@ class Aruco(Node):
             for rv, tv in zip(rvecs, tvecs):
                 cv2.aruco.drawAxis(bgr, K, np.zeros((4, 1)), rv, tv, 0.6)
             print(rvecs)
-            rvecs = -1 * rvecs
-            tvecs = -1 * tvecs
+            rvecs = rvecs
+            tvecs = tvecs
             p.header.frame_id = "marker_0"
             t.transform.translation.x = tvecs[0, 0, 0]
             p.pose.position.x = tvecs[0, 0, 0]

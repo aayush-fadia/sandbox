@@ -8,8 +8,8 @@ WorldInfo {
   coordinateSystem "NUE"
 }
 Viewpoint {
-  orientation 0.028607700941268938 -0.9669533926092263 -0.2533431190468031 3.4724189616725156
-  position 6.239528326526157 4.708370632781082 1.2399520088793543
+  orientation -0.3074736519448965 0.8527035101543166 0.42232295359141436 1.9614901632355888
+  position 5.774252024847005 2.944417372790394 4.922814128363188
   exposure 0.5
   ambientOcclusionRadius 1
 }
@@ -2041,7 +2041,7 @@ Robot {
       children [
         HingeJoint {
           jointParameters HingeJointParameters {
-            dampingConstant 200
+            dampingConstant 2000000
           }
           endPoint Solid {
             rotation 0.7071067811865475 0 0.7071067811865475 0

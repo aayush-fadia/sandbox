@@ -10,5 +10,5 @@ All of this is nicely encapsulated into one docker container, which launches PyC
 Refer to all the packages in the ros workspace src, to see individual docs.
 
 # Algorithms Implemented
-* Primitive visual odometry (ongoing)
+* Primitive visual odometry (ongoing) [Video](https://drive.google.com/file/d/1AzDaz9ERiqZGXREHXc0hbzQmHyg_6-aH/view?usp=sharing)
 * Robot pose estimation w.r.t ArUCo markers (ongoing)
